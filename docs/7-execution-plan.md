@@ -90,11 +90,11 @@
 **설명:** Node.js, PostgreSQL, Git 등 개발 도구 설치 및 확인
 
 **완료 조건:**
-- [ ] Node.js 18+ 설치 확인 (`node --version`)
-- [ ] npm 9+ 설치 확인 (`npm --version`)
+- [X] Node.js 18+ 설치 확인 (`node --version`)
+- [X] npm 9+ 설치 확인 (`npm --version`)
 - [ ] PostgreSQL 17 설치 및 실행 확인
-- [ ] Git 설치 확인
-- [ ] VS Code 설치 (권장)
+- [X] Git 설치 확인
+- [X] VS Code 설치 (권장)
 - [ ] Postman 또는 Thunder Client 설치
 
 **산출물:** 없음

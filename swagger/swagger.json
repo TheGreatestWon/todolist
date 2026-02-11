@@ -1,0 +1,610 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Todo Management System API",
+    "description": "A personal todo management system that allows users to manage their daily tasks effectively, focusing on what needs to be done now, what is overdue, and clearly distinguishing between completed and remaining tasks.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "email": "support@todomanagement.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "/api",
+      "description": "Main server for the Todo Management System API"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Register a new user",
+        "description": "Creates a new user account with the provided email and password.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity - validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login a user",
+        "description": "Authenticates a user with email and password, returning a JWT token.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserLoginResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todos": {
+      "get": {
+        "tags": [
+          "Todos"
+        ],
+        "summary": "Get user's todos",
+        "description": "Retrieves the authenticated user's todo list, with automatic classification by due date and status.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todos retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Todos"
+        ],
+        "summary": "Create a new todo",
+        "description": "Creates a new todo for the authenticated user.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Todo created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todos/{id}": {
+      "put": {
+        "tags": [
+          "Todos"
+        ],
+        "summary": "Update a todo",
+        "description": "Updates an existing todo for the authenticated user.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "ID of the todo to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Todo updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoUpdateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - todo not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Todos"
+        ],
+        "summary": "Delete a todo",
+        "description": "Deletes an existing todo for the authenticated user.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "ID of the todo to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todo deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoDeleteResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - todo not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserRegistrationRequest": {
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "user@example.com",
+            "description": "User's email address (must be unique)"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 8,
+            "example": "securePassword123",
+            "description": "User's password (minimum 8 characters)"
+          }
+        }
+      },
+      "UserRegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "User registered successfully",
+            "description": "Confirmation message"
+          }
+        }
+      },
+      "UserLoginRequest": {
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "user@example.com",
+            "description": "User's email address"
+          },
+          "password": {
+            "type": "string",
+            "example": "securePassword123",
+            "description": "User's password"
+          }
+        }
+      },
+      "UserLoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+            "description": "JWT token for authentication"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "description": "Unique identifier for the user"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "user@example.com",
+            "description": "User's email address"
+          }
+        }
+      },
+      "Todo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "description": "Unique identifier for the todo"
+          },
+          "user_id": {
+            "type": "integer",
+            "example": 1,
+            "description": "ID of the user who owns this todo"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200,
+            "example": "Project proposal",
+            "description": "Title of the todo (required, max 200 chars)"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "Write and submit the project proposal",
+            "description": "Detailed description of the todo (optional)"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-02-15",
+            "description": "Due date for the todo (optional, format: YYYY-MM-DD)"
+          },
+          "is_completed": {
+            "type": "boolean",
+            "example": false,
+            "description": "Completion status of the todo"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-11T10:00:00Z",
+            "description": "Timestamp when the todo was created"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-11T10:00:00Z",
+            "description": "Timestamp when the todo was last updated"
+          }
+        }
+      },
+      "TodoListResponse": {
+        "type": "object",
+        "properties": {
+          "todos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Todo"
+            },
+            "description": "List of todos for the authenticated user"
+          }
+        }
+      },
+      "TodoCreateRequest": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 200,
+            "example": "New task",
+            "description": "Title of the todo (required, max 200 chars)"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "Detailed description of the task",
+            "description": "Detailed description of the todo (optional)"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-02-20",
+            "description": "Due date for the todo (optional, format: YYYY-MM-DD)"
+          }
+        }
+      },
+      "TodoCreateResponse": {
+        "type": "object",
+        "properties": {
+          "todo": {
+            "$ref": "#/components/schemas/Todo"
+          }
+        }
+      },
+      "TodoUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 200,
+            "example": "Updated task title",
+            "description": "Updated title of the todo (required if present)"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "Updated description of the task",
+            "description": "Updated description of the todo (optional)"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-02-25",
+            "description": "Updated due date for the todo (optional, format: YYYY-MM-DD)"
+          },
+          "is_completed": {
+            "type": "boolean",
+            "example": true,
+            "description": "Updated completion status of the todo"
+          }
+        }
+      },
+      "TodoUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "todo": {
+            "$ref": "#/components/schemas/Todo"
+          }
+        }
+      },
+      "TodoDeleteResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Todo deleted successfully",
+            "description": "Confirmation message"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid email format",
+            "description": "Error message"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT token required for authentication"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Endpoints for user registration and login"
+    },
+    {
+      "name": "Todos",
+      "description": "Endpoints for managing todos"
+    }
+  ]
+}

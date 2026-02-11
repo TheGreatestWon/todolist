@@ -274,15 +274,15 @@
 **설명:** 백엔드 레이어별 디렉토리 및 기본 파일 생성
 
 **완료 조건:**
-- [ ] `src/config/` 디렉토리 생성
-- [ ] `src/middleware/` 디렉토리 생성
-- [ ] `src/routes/` 디렉토리 생성
-- [ ] `src/controllers/` 디렉토리 생성
-- [ ] `src/services/` 디렉토리 생성
-- [ ] `src/repositories/` 디렉토리 생성
-- [ ] `src/types/` 디렉토리 생성
-- [ ] `src/utils/` 디렉토리 생성
-- [ ] `src/server.ts` 파일 생성 (Express 앱 진입점)
+- [X] `src/config/` 디렉토리 생성
+- [X] `src/middleware/` 디렉토리 생성
+- [X] `src/routes/` 디렉토리 생성
+- [X] `src/controllers/` 디렉토리 생성
+- [X] `src/services/` 디렉토리 생성
+- [X] `src/repositories/` 디렉토리 생성
+- [X] `src/types/` 디렉토리 생성
+- [X] `src/utils/` 디렉토리 생성
+- [X] `src/server.ts` 파일 생성 (Express 앱 진입점)
 
 **산출물:**
 - 백엔드 디렉토리 구조 (프로젝트 원칙 문서 6.1절 참조)
@@ -296,18 +296,18 @@
 **설명:** User, Todo, API 요청/응답 타입 정의
 
 **완료 조건:**
-- [ ] `src/types/user.types.ts` 파일 생성
-  - [ ] `User` 인터페이스 정의 (id, email, password_hash, created_at, updated_at)
-  - [ ] `RegisterDto` 인터페이스 정의 (email, password)
-  - [ ] `LoginDto` 인터페이스 정의 (email, password)
-- [ ] `src/types/todo.types.ts` 파일 생성
-  - [ ] `Todo` 인터페이스 정의 (id, user_id, title, description, due_date, is_completed, created_at, updated_at)
-  - [ ] `CreateTodoDto` 인터페이스 정의 (title, description?, due_date?)
-  - [ ] `UpdateTodoDto` 인터페이스 정의 (title?, description?, due_date?, is_completed?)
-- [ ] `src/types/api.types.ts` 파일 생성
-  - [ ] `ApiResponse<T>` 제네릭 타입 정의
-  - [ ] `ErrorResponse` 인터페이스 정의
-  - [ ] `AuthResponse` 인터페이스 정의 (token, user)
+- [X] `src/types/user.types.ts` 파일 생성
+  - [X] `User` 인터페이스 정의 (id, email, password_hash, created_at, updated_at)
+  - [X] `RegisterDto` 인터페이스 정의 (email, password)
+  - [X] `LoginDto` 인터페이스 정의 (email, password)
+- [X] `src/types/todo.types.ts` 파일 생성
+  - [X] `Todo` 인터페이스 정의 (id, user_id, title, description, due_date, is_completed, created_at, updated_at)
+  - [X] `CreateTodoDto` 인터페이스 정의 (title, description?, due_date?)
+  - [X] `UpdateTodoDto` 인터페이스 정의 (title?, description?, due_date?, is_completed?)
+- [X] `src/types/api.types.ts` 파일 생성
+  - [X] `ApiResponse<T>` 제네릭 타입 정의
+  - [X] `ErrorResponse` 인터페이스 정의
+  - [X] `AuthResponse` 인터페이스 정의 (token, user)
 
 **산출물:**
 - `src/types/user.types.ts`
@@ -323,16 +323,16 @@
 **설명:** 비밀번호 해싱, JWT 생성/검증, 날짜 처리 유틸 함수 구현
 
 **완료 조건:**
-- [ ] `src/utils/password.ts` 파일 생성
-  - [ ] `hashPassword(password: string): Promise<string>` 함수 구현 (bcrypt, 10 rounds)
-  - [ ] `comparePassword(password: string, hash: string): Promise<boolean>` 함수 구현
-- [ ] `src/utils/jwt.ts` 파일 생성
-  - [ ] `generateToken(userId: number, email: string): string` 함수 구현
-  - [ ] `verifyToken(token: string): { userId: number; email: string }` 함수 구현
-  - [ ] 환경 변수 `JWT_SECRET` 사용
-- [ ] `src/utils/date.ts` 파일 생성
-  - [ ] `isOverdue(dueDate: string | null, isCompleted: boolean): boolean` 함수 구현 (BR-009)
-  - [ ] `formatDate(date: Date): string` 함수 구현 (YYYY-MM-DD)
+- [X] `src/utils/password.ts` 파일 생성
+  - [X] `hashPassword(password: string): Promise<string>` 함수 구현 (bcrypt, 10 rounds)
+  - [X] `comparePassword(password: string, hash: string): Promise<boolean>` 함수 구현
+- [X] `src/utils/jwt.ts` 파일 생성
+  - [X] `generateToken(userId: number, email: string): string` 함수 구현
+  - [X] `verifyToken(token: string): { userId: number; email: string }` 함수 구현
+  - [X] 환경 변수 `JWT_SECRET` 사용
+- [X] `src/utils/date.ts` 파일 생성
+  - [X] `isOverdue(dueDate: string | null, isCompleted: boolean): boolean` 함수 구현 (BR-009)
+  - [X] `formatDate(date: Date): string` 함수 구현 (YYYY-MM-DD)
 
 **산출물:**
 - `src/utils/password.ts`
@@ -348,17 +348,17 @@
 **설명:** 데이터베이스 접근 계층 구현 (UserRepository, TodoRepository)
 
 **완료 조건:**
-- [ ] `src/repositories/user.repository.ts` 파일 생성
-  - [ ] `findByEmail(email: string): Promise<User | null>` 메서드 구현
-  - [ ] `create(email: string, passwordHash: string): Promise<User>` 메서드 구현
-  - [ ] 파라미터화된 쿼리 사용 (SQL Injection 방어)
-- [ ] `src/repositories/todo.repository.ts` 파일 생성
-  - [ ] `findByUserId(userId: number): Promise<Todo[]>` 메서드 구현
-  - [ ] `findById(id: number): Promise<Todo | null>` 메서드 구현
-  - [ ] `create(userId: number, data: CreateTodoDto): Promise<Todo>` 메서드 구현
-  - [ ] `update(id: number, userId: number, data: UpdateTodoDto): Promise<Todo | null>` 메서드 구현
-  - [ ] `delete(id: number, userId: number): Promise<boolean>` 메서드 구현
-  - [ ] 모든 쿼리에 `user_id` 필터 적용 (BR-003: 소유권 기반 접근)
+- [X] `src/repositories/user.repository.ts` 파일 생성
+  - [X] `findByEmail(email: string): Promise<User | null>` 메서드 구현
+  - [X] `create(email: string, passwordHash: string): Promise<User>` 메서드 구현
+  - [X] 파라미터화된 쿼리 사용 (SQL Injection 방어)
+- [X] `src/repositories/todo.repository.ts` 파일 생성
+  - [X] `findByUserId(userId: number): Promise<Todo[]>` 메서드 구현
+  - [X] `findById(id: number): Promise<Todo | null>` 메서드 구현
+  - [X] `create(userId: number, data: CreateTodoDto): Promise<Todo>` 메서드 구현
+  - [X] `update(id: number, userId: number, data: UpdateTodoDto): Promise<Todo | null>` 메서드 구현
+  - [X] `delete(id: number, userId: number): Promise<boolean>` 메서드 구현
+  - [X] 모든 쿼리에 `user_id` 필터 적용 (BR-003: 소유권 기반 접근)
 
 **산출물:**
 - `src/repositories/user.repository.ts`
@@ -373,28 +373,28 @@
 **설명:** 비즈니스 로직 계층 구현 (AuthService, TodoService)
 
 **완료 조건:**
-- [ ] `src/services/auth.service.ts` 파일 생성
-  - [ ] `register(email: string, password: string): Promise<void>` 메서드 구현
-    - [ ] 이메일 중복 확인
-    - [ ] 비밀번호 해싱
-    - [ ] UserRepository.create 호출
-  - [ ] `login(email: string, password: string): Promise<{ token: string; user: User }>` 메서드 구현
-    - [ ] 사용자 조회
-    - [ ] 비밀번호 검증
-    - [ ] JWT 토큰 생성
-- [ ] `src/services/todo.service.ts` 파일 생성
-  - [ ] `getTodosByUser(userId: number): Promise<Todo[]>` 메서드 구현
-    - [ ] TodoRepository.findByUserId 호출
-    - [ ] BR-012: 기본 정렬 우선순위 적용 (Overdue > 마감일 빠른 순 > 생성일 빠른 순)
-  - [ ] `createTodo(userId: number, data: CreateTodoDto): Promise<Todo>` 메서드 구현
-    - [ ] 제목 검증 (빈 값 체크)
-    - [ ] TodoRepository.create 호출
-  - [ ] `updateTodo(id: number, userId: number, data: UpdateTodoDto): Promise<Todo>` 메서드 구현
-    - [ ] 소유권 검증
-    - [ ] TodoRepository.update 호출
-  - [ ] `deleteTodo(id: number, userId: number): Promise<boolean>` 메서드 구현
-    - [ ] 소유권 검증
-    - [ ] TodoRepository.delete 호출
+- [X] `src/services/auth.service.ts` 파일 생성
+  - [X] `register(email: string, password: string): Promise<void>` 메서드 구현
+    - [X] 이메일 중복 확인
+    - [X] 비밀번호 해싱
+    - [X] UserRepository.create 호출
+  - [X] `login(email: string, password: string): Promise<{ token: string; user: User }>` 메서드 구현
+    - [X] 사용자 조회
+    - [X] 비밀번호 검증
+    - [X] JWT 토큰 생성
+- [X] `src/services/todo.service.ts` 파일 생성
+  - [X] `getTodosByUser(userId: number): Promise<Todo[]>` 메서드 구현
+    - [X] TodoRepository.findByUserId 호출
+    - [X] BR-012: 기본 정렬 우선순위 적용 (Overdue > 마감일 빠른 순 > 생성일 빠른 순)
+  - [X] `createTodo(userId: number, data: CreateTodoDto): Promise<Todo>` 메서드 구현
+    - [X] 제목 검증 (빈 값 체크)
+    - [X] TodoRepository.create 호출
+  - [X] `updateTodo(id: number, userId: number, data: UpdateTodoDto): Promise<Todo>` 메서드 구현
+    - [X] 소유권 검증
+    - [X] TodoRepository.update 호출
+  - [X] `deleteTodo(id: number, userId: number): Promise<boolean>` 메서드 구현
+    - [X] 소유권 검증
+    - [X] TodoRepository.delete 호출
 
 **산출물:**
 - `src/services/auth.service.ts`
@@ -409,21 +409,21 @@
 **설명:** JWT 인증, 에러 핸들러, 입력 검증 미들웨어 구현
 
 **완료 조건:**
-- [ ] `src/middleware/auth.ts` 파일 생성
-  - [ ] `authMiddleware` 함수 구현
-  - [ ] `Authorization: Bearer {token}` 헤더 파싱
-  - [ ] JWT 검증 (utils/jwt.ts 사용)
-  - [ ] `req.user` 객체 설정 (userId, email)
-  - [ ] 인증 실패 시 401 Unauthorized 응답
-- [ ] `src/middleware/error-handler.ts` 파일 생성
-  - [ ] 전역 에러 핸들러 미들웨어 구현
-  - [ ] 에러 타입별 적절한 HTTP 상태 코드 반환
-  - [ ] 에러 로깅 (console.error)
-  - [ ] 프로덕션 환경에서 스택 트레이스 숨김
-- [ ] `src/middleware/validator.ts` 파일 생성
-  - [ ] `validateRegister` 미들웨어 구현 (이메일 형식, 비밀번호 8자 이상)
-  - [ ] `validateLogin` 미들웨어 구현
-  - [ ] `validateCreateTodo` 미들웨어 구현 (title 필수)
+- [X] `src/middleware/auth.ts` 파일 생성
+  - [X] `authMiddleware` 함수 구현
+  - [X] `Authorization: Bearer {token}` 헤더 파싱
+  - [X] JWT 검증 (utils/jwt.ts 사용)
+  - [X] `req.user` 객체 설정 (userId, email)
+  - [X] 인증 실패 시 401 Unauthorized 응답
+- [X] `src/middleware/error-handler.ts` 파일 생성
+  - [X] 전역 에러 핸들러 미들웨어 구현
+  - [X] 에러 타입별 적절한 HTTP 상태 코드 반환
+  - [X] 에러 로깅 (console.error)
+  - [X] 프로덕션 환경에서 스택 트레이스 숨김
+- [X] `src/middleware/validator.ts` 파일 생성
+  - [X] `validateRegister` 미들웨어 구현 (이메일 형식, 비밀번호 8자 이상)
+  - [X] `validateLogin` 미들웨어 구현
+  - [X] `validateCreateTodo` 미들웨어 구현 (title 필수)
 
 **산출물:**
 - `src/middleware/auth.ts`
@@ -439,37 +439,37 @@
 **설명:** HTTP 요청 처리 계층 구현 (AuthController, TodoController)
 
 **완료 조건:**
-- [ ] `src/controllers/auth.controller.ts` 파일 생성
-  - [ ] `register` 핸들러 구현 (POST /api/auth/register)
-    - [ ] 요청 body 파싱 (email, password)
-    - [ ] AuthService.register 호출
-    - [ ] 201 Created 응답
-    - [ ] 에러 처리 (중복 이메일 → 400, 유효성 실패 → 422)
-  - [ ] `login` 핸들러 구현 (POST /api/auth/login)
-    - [ ] 요청 body 파싱 (email, password)
-    - [ ] AuthService.login 호출
-    - [ ] 200 OK 응답 (token, user)
-    - [ ] 에러 처리 (인증 실패 → 401)
-- [ ] `src/controllers/todo.controller.ts` 파일 생성
-  - [ ] `getTodos` 핸들러 구현 (GET /api/todos)
-    - [ ] `req.user.id` 추출 (authMiddleware에서 설정)
-    - [ ] TodoService.getTodosByUser 호출
-    - [ ] 200 OK 응답 (todos 배열)
-  - [ ] `createTodo` 핸들러 구현 (POST /api/todos)
-    - [ ] 요청 body 파싱 (title, description, due_date)
-    - [ ] TodoService.createTodo 호출
-    - [ ] 201 Created 응답
-  - [ ] `updateTodo` 핸들러 구현 (PUT /api/todos/:id)
-    - [ ] URL 파라미터 `id` 파싱
-    - [ ] 요청 body 파싱
-    - [ ] TodoService.updateTodo 호출
-    - [ ] 200 OK 응답
-    - [ ] 에러 처리 (소유권 없음 → 403, 없는 Todo → 404)
-  - [ ] `deleteTodo` 핸들러 구현 (DELETE /api/todos/:id)
-    - [ ] URL 파라미터 `id` 파싱
-    - [ ] TodoService.deleteTodo 호출
-    - [ ] 200 OK 응답
-    - [ ] 에러 처리 (소유권 없음 → 403, 없는 Todo → 404)
+- [X] `src/controllers/auth.controller.ts` 파일 생성
+  - [X] `register` 핸들러 구현 (POST /api/auth/register)
+    - [X] 요청 body 파싱 (email, password)
+    - [X] AuthService.register 호출
+    - [X] 201 Created 응답
+    - [X] 에러 처리 (중복 이메일 → 400, 유효성 실패 → 422)
+  - [X] `login` 핸들러 구현 (POST /api/auth/login)
+    - [X] 요청 body 파싱 (email, password)
+    - [X] AuthService.login 호출
+    - [X] 200 OK 응답 (token, user)
+    - [X] 에러 처리 (인증 실패 → 401)
+- [X] `src/controllers/todo.controller.ts` 파일 생성
+  - [X] `getTodos` 핸들러 구현 (GET /api/todos)
+    - [X] `req.user.id` 추출 (authMiddleware에서 설정)
+    - [X] TodoService.getTodosByUser 호출
+    - [X] 200 OK 응답 (todos 배열)
+  - [X] `createTodo` 핸들러 구현 (POST /api/todos)
+    - [X] 요청 body 파싱 (title, description, due_date)
+    - [X] TodoService.createTodo 호출
+    - [X] 201 Created 응답
+  - [X] `updateTodo` 핸들러 구현 (PUT /api/todos/:id)
+    - [X] URL 파라미터 `id` 파싱
+    - [X] 요청 body 파싱
+    - [X] TodoService.updateTodo 호출
+    - [X] 200 OK 응답
+    - [X] 에러 처리 (소유권 없음 → 403, 없는 Todo → 404)
+  - [X] `deleteTodo` 핸들러 구현 (DELETE /api/todos/:id)
+    - [X] URL 파라미터 `id` 파싱
+    - [X] TodoService.deleteTodo 호출
+    - [X] 200 OK 응답
+    - [X] 에러 처리 (소유권 없음 → 403, 없는 Todo → 404)
 
 **산출물:**
 - `src/controllers/auth.controller.ts`
@@ -484,14 +484,14 @@
 **설명:** API 엔드포인트 라우트 정의
 
 **완료 조건:**
-- [ ] `src/routes/auth.routes.ts` 파일 생성
-  - [ ] `POST /api/auth/register` 라우트 정의 (validateRegister → AuthController.register)
-  - [ ] `POST /api/auth/login` 라우트 정의 (validateLogin → AuthController.login)
-- [ ] `src/routes/todo.routes.ts` 파일 생성
-  - [ ] `GET /api/todos` 라우트 정의 (authMiddleware → TodoController.getTodos)
-  - [ ] `POST /api/todos` 라우트 정의 (authMiddleware → validateCreateTodo → TodoController.createTodo)
-  - [ ] `PUT /api/todos/:id` 라우트 정의 (authMiddleware → TodoController.updateTodo)
-  - [ ] `DELETE /api/todos/:id` 라우트 정의 (authMiddleware → TodoController.deleteTodo)
+- [X] `src/routes/auth.routes.ts` 파일 생성
+  - [X] `POST /api/auth/register` 라우트 정의 (validateRegister → AuthController.register)
+  - [X] `POST /api/auth/login` 라우트 정의 (validateLogin → AuthController.login)
+- [X] `src/routes/todo.routes.ts` 파일 생성
+  - [X] `GET /api/todos` 라우트 정의 (authMiddleware → TodoController.getTodos)
+  - [X] `POST /api/todos` 라우트 정의 (authMiddleware → validateCreateTodo → TodoController.createTodo)
+  - [X] `PUT /api/todos/:id` 라우트 정의 (authMiddleware → TodoController.updateTodo)
+  - [X] `DELETE /api/todos/:id` 라우트 정의 (authMiddleware → TodoController.deleteTodo)
 
 **산출물:**
 - `src/routes/auth.routes.ts`
@@ -506,20 +506,20 @@
 **설명:** Express 앱 초기화 및 미들웨어, 라우트 통합
 
 **완료 조건:**
-- [ ] `src/server.ts` 파일 구현
-  - [ ] Express 앱 생성
-  - [ ] CORS 미들웨어 설정
-  - [ ] `express.json()` 미들웨어 설정 (body parser)
-  - [ ] `/api/auth` 라우트 등록
-  - [ ] `/api/todos` 라우트 등록
-  - [ ] 전역 에러 핸들러 등록
-  - [ ] 서버 포트 설정 (환경 변수 `PORT` 또는 기본 3001)
-  - [ ] 서버 시작 (`app.listen`)
-- [ ] `.env.example` 업데이트
-  - [ ] `DATABASE_URL` 추가
-  - [ ] `JWT_SECRET` 추가
-  - [ ] `PORT` 추가
-  - [ ] `NODE_ENV` 추가
+- [X] `src/server.ts` 파일 구현
+  - [X] Express 앱 생성
+  - [X] CORS 미들웨어 설정
+  - [X] `express.json()` 미들웨어 설정 (body parser)
+  - [X] `/api/auth` 라우트 등록
+  - [X] `/api/todos` 라우트 등록
+  - [X] 전역 에러 핸들러 등록
+  - [X] 서버 포트 설정 (환경 변수 `PORT` 또는 기본 3001)
+  - [X] 서버 시작 (`app.listen`)
+- [X] `.env.example` 업데이트
+  - [X] `DATABASE_URL` 추가
+  - [X] `JWT_SECRET` 추가
+  - [X] `PORT` 추가
+  - [X] `NODE_ENV` 추가
 
 **산출물:**
 - `src/server.ts`
@@ -534,31 +534,31 @@
 **설명:** Postman으로 모든 API 엔드포인트 수동 테스트
 
 **완료 조건:**
-- [ ] 서버 실행 (`npm run dev`)
-- [ ] **회원가입 API 테스트**
-  - [ ] 정상 가입 성공 (201)
-  - [ ] 중복 이메일 실패 (400)
-  - [ ] 잘못된 이메일 형식 실패 (422)
-  - [ ] 비밀번호 8자 미만 실패 (422)
-- [ ] **로그인 API 테스트**
-  - [ ] 정상 로그인 성공 (200, token 반환)
-  - [ ] 잘못된 비밀번호 실패 (401)
-  - [ ] 존재하지 않는 이메일 실패 (401)
-- [ ] **할 일 생성 API 테스트**
-  - [ ] 정상 생성 성공 (201)
-  - [ ] 인증 없이 요청 실패 (401)
-  - [ ] 제목 없이 생성 실패 (400)
-- [ ] **할 일 조회 API 테스트**
-  - [ ] 정상 조회 성공 (200, 본인 할 일만 반환)
-  - [ ] 인증 없이 요청 실패 (401)
-- [ ] **할 일 수정 API 테스트**
-  - [ ] 정상 수정 성공 (200)
-  - [ ] 다른 사용자의 할 일 수정 실패 (403)
-  - [ ] 존재하지 않는 할 일 수정 실패 (404)
-- [ ] **할 일 삭제 API 테스트**
-  - [ ] 정상 삭제 성공 (200)
-  - [ ] 다른 사용자의 할 일 삭제 실패 (403)
-  - [ ] 존재하지 않는 할 일 삭제 실패 (404)
+- [X] 서버 실행 (`npm run dev`)
+- [X] **회원가입 API 테스트**
+  - [X] 정상 가입 성공 (201)
+  - [X] 중복 이메일 실패 (400)
+  - [X] 잘못된 이메일 형식 실패 (422)
+  - [X] 비밀번호 8자 미만 실패 (422)
+- [X] **로그인 API 테스트**
+  - [X] 정상 로그인 성공 (200, token 반환)
+  - [X] 잘못된 비밀번호 실패 (401)
+  - [X] 존재하지 않는 이메일 실패 (401)
+- [X] **할 일 생성 API 테스트**
+  - [X] 정상 생성 성공 (201)
+  - [X] 인증 없이 요청 실패 (401)
+  - [X] 제목 없이 생성 실패 (400)
+- [X] **할 일 조회 API 테스트**
+  - [X] 정상 조회 성공 (200, 본인 할 일만 반환)
+  - [X] 인증 없이 요청 실패 (401)
+- [X] **할 일 수정 API 테스트**
+  - [X] 정상 수정 성공 (200)
+  - [X] 다른 사용자의 할 일 수정 실패 (403)
+  - [X] 존재하지 않는 할 일 수정 실패 (404)
+- [X] **할 일 삭제 API 테스트**
+  - [X] 정상 삭제 성공 (200)
+  - [X] 다른 사용자의 할 일 삭제 실패 (403)
+  - [X] 존재하지 않는 할 일 삭제 실패 (404)
 
 **산출물:**
 - Postman 테스트 결과 스크린샷 (선택)

@@ -92,10 +92,10 @@
 **완료 조건:**
 - [X] Node.js 18+ 설치 확인 (`node --version`)
 - [X] npm 9+ 설치 확인 (`npm --version`)
-- [ ] PostgreSQL 17 설치 및 실행 확인
+- [X] PostgreSQL 17 설치 및 실행 확인
 - [X] Git 설치 확인
 - [X] VS Code 설치 (권장)
-- [ ] Postman 또는 Thunder Client 설치
+- [X] Postman 또는 Thunder Client 설치
 
 **산출물:** 없음
 
@@ -108,12 +108,12 @@
 **설명:** 백엔드, 프론트엔드 디렉토리 및 기본 파일 생성
 
 **완료 조건:**
-- [ ] 루트 디렉토리 생성 (`todolist/`)
-- [ ] 백엔드 디렉토리 생성 (`backend/`)
-- [ ] 프론트엔드 디렉토리 생성 (`frontend/`)
-- [ ] 문서 디렉토리 생성 (`docs/`)
-- [ ] `.gitignore` 파일 생성 (node_modules, .env 제외)
-- [ ] `README.md` 파일 작성 (프로젝트 소개)
+- [X] 루트 디렉토리 생성 (`todolist/`)
+- [X] 백엔드 디렉토리 생성 (`backend/`)
+- [X] 프론트엔드 디렉토리 생성 (`frontend/`)
+- [X] 문서 디렉토리 생성 (`docs/`)
+- [X] `.gitignore` 파일 생성 (node_modules, .env 제외)
+- [X] `README.md` 파일 작성 (프로젝트 소개)
 
 **산출물:**
 - `todolist/` 디렉토리 구조
@@ -129,17 +129,17 @@
 **설명:** Express + TypeScript 프로젝트 초기화 및 패키지 설치
 
 **완료 조건:**
-- [ ] `cd backend && npm init -y` 실행
-- [ ] TypeScript 설치 (`npm install -D typescript @types/node @types/express`)
-- [ ] Express 설치 (`npm install express`)
-- [ ] 필수 패키지 설치:
-  - [ ] `pg` (PostgreSQL 클라이언트)
-  - [ ] `bcrypt` 및 `@types/bcrypt`
-  - [ ] `jsonwebtoken` 및 `@types/jsonwebtoken`
-  - [ ] `dotenv`
-  - [ ] `cors` 및 `@types/cors`
-- [ ] `tsconfig.json` 생성 및 설정
-- [ ] `package.json` scripts 설정 (`dev`, `build`, `start`)
+- [X] `cd backend && npm init -y` 실행
+- [X] TypeScript 설치 (`npm install -D typescript @types/node @types/express`)
+- [X] Express 설치 (`npm install express`)
+- [X] 필수 패키지 설치:
+  - [X] `pg` (PostgreSQL 클라이언트)
+  - [X] `bcrypt` 및 `@types/bcrypt`
+  - [X] `jsonwebtoken` 및 `@types/jsonwebtoken`
+  - [X] `dotenv`
+  - [X] `cors` 및 `@types/cors`
+- [X] `tsconfig.json` 생성 및 설정
+- [X] `package.json` scripts 설정 (`dev`, `build`, `start`)
 
 **산출물:**
 - `backend/package.json`
@@ -155,11 +155,11 @@
 **설명:** React + TypeScript 프로젝트 초기화
 
 **완료 조건:**
-- [ ] `npx create-react-app frontend --template typescript` 실행
-- [ ] React Router 설치 (`npm install react-router-dom`)
-- [ ] 불필요한 파일 제거 (logo, test files)
-- [ ] `src/` 디렉토리 정리
-- [ ] `.env.example` 파일 생성
+- [X] `npx create-react-app frontend --template typescript` 실행
+- [X] React Router 설치 (`npm install react-router-dom`)
+- [X] 불필요한 파일 제거 (logo, test files)
+- [X] `src/` 디렉토리 정리
+- [X] `.env.example` 파일 생성
 
 **산출물:**
 - `frontend/` React 프로젝트
@@ -183,10 +183,10 @@
 **설명:** PostgreSQL에 `todolist` 데이터베이스 생성
 
 **완료 조건:**
-- [ ] PostgreSQL 서버 실행 확인
-- [ ] `createdb todolist` 명령 실행 (또는 pgAdmin 사용)
-- [ ] 데이터베이스 접속 확인 (`psql -d todolist`)
-- [ ] 사용자 권한 확인
+- [X] PostgreSQL 서버 실행 확인
+- [X] `createdb todolist` 명령 실행 (또는 pgAdmin 사용)
+- [X] 데이터베이스 접속 확인 (`psql -d todolist`)
+- [X] 사용자 권한 확인
 
 **산출물:**
 - `todolist` 데이터베이스
@@ -200,13 +200,13 @@
 **설명:** `database/schema.sql` 파일을 사용하여 테이블, 인덱스, 트리거 생성
 
 **완료 조건:**
-- [ ] `database/schema.sql` 파일 확인 (이미 생성됨)
-- [ ] `psql -d todolist -f database/schema.sql` 실행
-- [ ] `users` 테이블 생성 확인 (`\dt users`)
-- [ ] `todos` 테이블 생성 확인 (`\dt todos`)
-- [ ] 인덱스 생성 확인 (`\di`)
-- [ ] 트리거 생성 확인 (`\df update_updated_at_column`)
-- [ ] 외래 키 제약 확인 (`\d todos`)
+- [X] `database/schema.sql` 파일 확인 (이미 생성됨)
+- [X] `psql -d todolist -f database/schema.sql` 실행
+- [X] `users` 테이블 생성 확인 (`\dt users`)
+- [X] `todos` 테이블 생성 확인 (`\dt todos`)
+- [X] 인덱스 생성 확인 (`\di`)
+- [X] 트리거 생성 확인 (`\df update_updated_at_column`)
+- [X] 외래 키 제약 확인 (`\d todos`)
 
 **산출물:**
 - `users` 테이블
@@ -223,13 +223,13 @@
 **설명:** 백엔드에서 PostgreSQL 연결 설정 및 테스트
 
 **완료 조건:**
-- [ ] `backend/src/config/database.ts` 파일 생성
-- [ ] `pg` 라이브러리를 사용한 연결 풀 설정
-- [ ] 환경 변수 `DATABASE_URL` 사용
-- [ ] `.env.example` 파일에 `DATABASE_URL` 템플릿 추가
-- [ ] `.env` 파일 생성 (로컬 DB URL 설정)
-- [ ] 연결 테스트 쿼리 실행 (`SELECT NOW()`)
-- [ ] 에러 핸들링 구현
+- [X] `backend/src/config/database.ts` 파일 생성
+- [X] `pg` 라이브러리를 사용한 연결 풀 설정
+- [X] 환경 변수 `DATABASE_URL` 사용
+- [X] `.env.example` 파일에 `DATABASE_URL` 템플릿 추가
+- [X] `.env` 파일 생성 (로컬 DB URL 설정)
+- [X] 연결 테스트 쿼리 실행 (`SELECT NOW()`)
+- [X] 에러 핸들링 구현
 
 **산출물:**
 - `backend/src/config/database.ts`
@@ -245,11 +245,11 @@
 **설명:** 개발/테스트를 위한 샘플 사용자 및 할 일 데이터 삽입
 
 **완료 조건:**
-- [ ] ERD 문서의 샘플 데이터 SQL 확인
-- [ ] 테스트 사용자 3명 삽입 (비밀번호: "password123")
-- [ ] 테스트 할 일 10개 삽입
-- [ ] 데이터 삽입 확인 (`SELECT * FROM users;`)
-- [ ] 데이터 삽입 확인 (`SELECT * FROM todos;`)
+- [X] ERD 문서의 샘플 데이터 SQL 확인
+- [X] 테스트 사용자 3명 삽입 (비밀번호: "password123")
+- [X] 테스트 할 일 10개 삽입
+- [X] 데이터 삽입 확인 (`SELECT * FROM users;`)
+- [X] 데이터 삽입 확인 (`SELECT * FROM todos;`)
 
 **산출물:**
 - 샘플 데이터 (users 3건, todos 10건)

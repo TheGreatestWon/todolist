@@ -1,5 +1,9 @@
+/* 전역 스타일 임포트 */
+@import './styles/global.css';
+
 .App {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  min-height: 100vh;
 }

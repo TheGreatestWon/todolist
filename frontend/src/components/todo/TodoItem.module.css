@@ -1,0 +1,175 @@
+/**
+ * TodoItem Styles
+ *
+ * 할 일 항목의 레이아웃 및 스타일 정의
+ * 스타일 가이드에 따라 Microsoft To Do 스타일로 디자인
+ */
+
+.todoCard {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.todoCard:hover {
+  border-color: var(--gray-300);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.todoCard.selected {
+  border-color: var(--primary-red);
+  background: var(--primary-red-light);
+}
+
+.todoCard.completed {
+  opacity: 0.6;
+}
+
+.todoCard.completed .todoTitle {
+  text-decoration: line-through;
+  color: var(--gray-600);
+}
+
+/* 할 일 카드 콘텐츠 */
+.todoCardContent {
+  display: flex;
+  flex: 1;
+}
+
+/* 체크박스 */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-400);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.checkbox:hover {
+  border-color: var(--primary-red);
+}
+
+.checkbox:checked {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+  position: relative;
+}
+
+.checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 할 일 상세 정보 */
+.todoDetails {
+  flex: 1;
+}
+
+.todoTitle {
+  font-size: var(--font-md);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+  margin: 0 0 4px 0;
+}
+
+.todoDescription {
+  font-size: var(--font-sm);
+  color: var(--gray-600);
+  margin: 0 0 8px 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 767px) {
+  .todoCard {
+    padding: 12px;
+    margin-bottom: 6px;
+  }
+
+  .todoTitle {
+    font-size: var(--font-sm);
+  }
+
+  .todoDescription {
+    font-size: var(--font-xs);
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .actionButton {
+    padding: 6px;
+    font-size: var(--font-sm);
+  }
+}
+
+/* 날짜 배지 */
+.dateBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.dateBadge.today {
+  background: var(--warning);
+  color: white;
+}
+
+.dateBadge.overdue {
+  background: var(--error);
+  color: white;
+}
+
+/* 액션 버튼들 */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.actionButton {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-600);
+  font-size: var(--font-md);
+}
+
+.actionButton:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+/* 기한 경과 스타일 */
+.overdue {
+  background-color: rgba(244, 67, 54, 0.05); /* --error 색상의 5% 투명도 */
+  border: 2px solid var(--error);
+}
+
+/* 오늘 할 일 스타일 */
+.today {
+  background-color: rgba(255, 193, 7, 0.05); /* --warning 색상의 5% 투명도 */
+  border: 2px solid var(--warning);
+}

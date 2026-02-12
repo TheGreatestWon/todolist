@@ -7,4 +7,4 @@ const app = express();
 app.use("/api", createMockMiddleware({ spec: "../swagger/swagger.json" })); // 목 서버
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc)); // Swagger UI
 
-app.listen(3000);
+app.listen(3001);

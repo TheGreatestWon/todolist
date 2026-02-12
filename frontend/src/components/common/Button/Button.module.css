@@ -1,0 +1,76 @@
+.button {
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: inherit;
+  min-height: 44px; /* 터치 타겟 최소 크기 보장 */
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary variant */
+.button.primary {
+  background: var(--primary-red);
+  color: var(--white);
+}
+
+.button.primary:hover:not(:disabled) {
+  background: var(--primary-red-dark);
+}
+
+.button.primary:active:not(:disabled) {
+  background: var(--primary-red-dark);
+  transform: translateY(1px);
+}
+
+/* Secondary variant */
+.button.secondary {
+  background: transparent;
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+}
+
+.button.secondary:hover:not(:disabled) {
+  background: var(--gray-100);
+}
+
+.button.secondary:active:not(:disabled) {
+  background: var(--gray-200);
+  transform: translateY(1px);
+}
+
+/* Danger variant */
+.button.danger {
+  background: var(--error);
+  color: var(--white);
+}
+
+.button.danger:hover:not(:disabled) {
+  background: #D32F2F;
+}
+
+.button.danger:active:not(:disabled) {
+  background: #C62828;
+  transform: translateY(1px);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 767px) {
+  .button {
+    padding: 14px 20px; /* 모바일에서 더 넓은 터치 영역 */
+    font-size: var(--font-md); /* 모바일에서 더 큰 텍스트 */
+    min-height: 48px;
+  }
+}

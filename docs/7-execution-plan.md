@@ -581,17 +581,17 @@
 **설명:** React 프로젝트 디렉토리 및 기본 파일 생성
 
 **완료 조건:**
-- [ ] `src/components/` 디렉토리 생성
-  - [ ] `src/components/common/` 서브디렉토리 생성
-  - [ ] `src/components/todo/` 서브디렉토리 생성
-  - [ ] `src/components/auth/` 서브디렉토리 생성
-- [ ] `src/pages/` 디렉토리 생성
-- [ ] `src/hooks/` 디렉토리 생성
-- [ ] `src/services/` 디렉토리 생성
-- [ ] `src/context/` 디렉토리 생성
-- [ ] `src/types/` 디렉토리 생성
-- [ ] `src/utils/` 디렉토리 생성
-- [ ] `src/styles/` 디렉토리 생성
+- [X] `src/components/` 디렉토리 생성
+  - [X] `src/components/common/` 서브디렉토리 생성
+  - [X] `src/components/todo/` 서브디렉토리 생성
+  - [X] `src/components/auth/` 서브디렉토리 생성
+- [X] `src/pages/` 디렉토리 생성
+- [X] `src/hooks/` 디렉토리 생성
+- [X] `src/services/` 디렉토리 생성
+- [X] `src/context/` 디렉토리 생성
+- [X] `src/types/` 디렉토리 생성
+- [X] `src/utils/` 디렉토리 생성
+- [X] `src/styles/` 디렉토리 생성
 
 **산출물:**
 - 프론트엔드 디렉토리 구조 (프로젝트 원칙 문서 6.2절 참조)
@@ -605,18 +605,18 @@
 **설명:** 프론트엔드 타입 정의 (백엔드와 일치)
 
 **완료 조건:**
-- [ ] `src/types/user.types.ts` 파일 생성
-  - [ ] `User` 인터페이스 정의
-  - [ ] `LoginDto` 인터페이스 정의
-  - [ ] `RegisterDto` 인터페이스 정의
-- [ ] `src/types/todo.types.ts` 파일 생성
-  - [ ] `Todo` 인터페이스 정의
-  - [ ] `CreateTodoDto` 인터페이스 정의
-  - [ ] `UpdateTodoDto` 인터페이스 정의
-- [ ] `src/types/api.types.ts` 파일 생성
-  - [ ] `AuthResponse` 인터페이스 정의 (token, user)
-  - [ ] `TodosResponse` 인터페이스 정의 (todos 배열)
-  - [ ] `ErrorResponse` 인터페이스 정의
+- [X] `src/types/user.types.ts` 파일 생성
+  - [X] `User` 인터페이스 정의
+  - [X] `LoginDto` 인터페이스 정의
+  - [X] `RegisterDto` 인터페이스 정의
+- [X] `src/types/todo.types.ts` 파일 생성
+  - [X] `Todo` 인터페이스 정의
+  - [X] `CreateTodoDto` 인터페이스 정의
+  - [X] `UpdateTodoDto` 인터페이스 정의
+- [X] `src/types/api.types.ts` 파일 생성
+  - [X] `AuthResponse` 인터페이스 정의 (token, user)
+  - [X] `TodosResponse` 인터페이스 정의 (todos 배열)
+  - [X] `ErrorResponse` 인터페이스 정의
 
 **산출물:**
 - `src/types/user.types.ts`
@@ -632,14 +632,14 @@
 **설명:** axios 또는 fetch API를 사용한 HTTP 클라이언트 설정
 
 **완료 조건:**
-- [ ] `src/services/api.ts` 파일 생성
-  - [ ] `API_BASE_URL` 환경 변수 사용 (`REACT_APP_API_URL`)
-  - [ ] 기본 헤더 설정 (`Content-Type: application/json`)
-  - [ ] JWT 토큰 자동 포함 (`Authorization: Bearer {token}`)
-  - [ ] 401 응답 시 로그아웃 처리 (토큰 만료)
-  - [ ] 에러 응답 처리
-- [ ] `.env.example` 파일 생성
-  - [ ] `REACT_APP_API_URL=http://localhost:3001/api` 추가
+- [X] `src/services/api.ts` 파일 생성
+  - [X] `API_BASE_URL` 환경 변수 사용 (`REACT_APP_API_URL`)
+  - [X] 기본 헤더 설정 (`Content-Type: application/json`)
+  - [X] JWT 토큰 자동 포함 (`Authorization: Bearer {token}`)
+  - [X] 401 응답 시 로그아웃 처리 (토큰 만료)
+  - [X] 에러 응답 처리
+- [X] `.env.example` 파일 생성
+  - [X] `REACT_APP_API_URL=http://localhost:3001/api` 추가
 
 **산출물:**
 - `src/services/api.ts`
@@ -649,28 +649,31 @@
 
 ---
 
-### Task 3.4: Auth Service 구현
+### Task 3.4: Auth Service 구현 ✅
 
 **설명:** 인증 관련 API 호출 함수 구현
 
 **완료 조건:**
-- [ ] `src/services/auth.service.ts` 파일 생성
-  - [ ] `register(email: string, password: string): Promise<void>` 함수 구현
-    - [ ] `POST /api/auth/register` 호출
-    - [ ] 성공 시 resolve, 실패 시 reject
-  - [ ] `login(email: string, password: string): Promise<AuthResponse>` 함수 구현
-    - [ ] `POST /api/auth/login` 호출
-    - [ ] 성공 시 { token, user } 반환
-    - [ ] 토큰을 localStorage에 저장
-  - [ ] `logout(): void` 함수 구현
-    - [ ] localStorage에서 토큰 삭제
-  - [ ] `getToken(): string | null` 함수 구현
-    - [ ] localStorage에서 토큰 조회
+- [x] `src/services/auth.service.ts` 파일 생성
+  - [x] `register(email: string, password: string): Promise<void>` 함수 구현
+    - [x] `POST /api/auth/register` 호출
+    - [x] 성공 시 resolve, 실패 시 reject
+  - [x] `login(email: string, password: string): Promise<AuthResponse>` 함수 구현
+    - [x] `POST /api/auth/login` 호출
+    - [x] 성공 시 { token, user } 반환
+    - [x] 토큰을 localStorage에 저장
+  - [x] `logout(): void` 함수 구현
+    - [x] localStorage에서 토큰 삭제
+  - [x] `getToken(): string | null` 함수 구현
+    - [x] localStorage에서 토큰 조회
 
 **산출물:**
 - `src/services/auth.service.ts`
+- `src/services/__tests__/auth.service.test.ts`
 
 **예상 시간:** 30분
+**실제 시간:** 25분
+**테스트 결과:** ✅ 11/11 passed (커버리지 100%)
 
 ---
 
@@ -679,11 +682,11 @@
 **설명:** 할 일 관련 API 호출 함수 구현
 
 **완료 조건:**
-- [ ] `src/services/todo.service.ts` 파일 생성
-  - [ ] `getTodos(): Promise<Todo[]>` 함수 구현 (GET /api/todos)
-  - [ ] `createTodo(data: CreateTodoDto): Promise<Todo>` 함수 구현 (POST /api/todos)
-  - [ ] `updateTodo(id: number, data: UpdateTodoDto): Promise<Todo>` 함수 구현 (PUT /api/todos/:id)
-  - [ ] `deleteTodo(id: number): Promise<void>` 함수 구현 (DELETE /api/todos/:id)
+- [x] `src/services/todo.service.ts` 파일 생성
+  - [x] `getTodos(): Promise<Todo[]>` 함수 구현 (GET /api/todos)
+  - [x] `createTodo(data: CreateTodoDto): Promise<Todo>` 함수 구현 (POST /api/todos)
+  - [x] `updateTodo(id: number, data: UpdateTodoDto): Promise<Todo>` 함수 구현 (PUT /api/todos/:id)
+  - [x] `deleteTodo(id: number): Promise<void>` 함수 구현 (DELETE /api/todos/:id)
 
 **산출물:**
 - `src/services/todo.service.ts`
@@ -697,14 +700,14 @@
 **설명:** 인증 상태 전역 관리를 위한 React Context 구현
 
 **완료 조건:**
-- [ ] `src/context/AuthContext.tsx` 파일 생성
-  - [ ] `AuthContext` 생성
-  - [ ] `AuthProvider` 컴포넌트 구현
-  - [ ] 상태: `user`, `token`, `isAuthenticated`, `isLoading`
-  - [ ] 함수: `login`, `logout`, `register`
-  - [ ] 초기 로드 시 localStorage에서 토큰 복원
-  - [ ] `useAuth` 커스텀 훅 구현
-- [ ] `src/App.tsx`에 `AuthProvider` 적용
+- [x] `src/context/AuthContext.tsx` 파일 생성
+  - [x] `AuthContext` 생성
+  - [x] `AuthProvider` 컴포넌트 구현
+  - [x] 상태: `user`, `token`, `isAuthenticated`, `isLoading`
+  - [x] 함수: `login`, `logout`, `register`
+  - [x] 초기 로드 시 localStorage에서 토큰 복원
+  - [x] `useAuth` 커스텀 훅 구현
+- [x] `src/App.tsx`에 `AuthProvider` 적용
 
 **산출물:**
 - `src/context/AuthContext.tsx`
@@ -718,11 +721,11 @@
 **설명:** useTodos, useApi 커스텀 훅 구현
 
 **완료 조건:**
-- [ ] `src/hooks/useTodos.ts` 파일 생성
-  - [ ] `useTodos()` 훅 구현
-  - [ ] 상태: `todos`, `loading`, `error`
-  - [ ] 함수: `fetchTodos`, `createTodo`, `updateTodo`, `deleteTodo`, `toggleComplete`
-  - [ ] 자동으로 fetchTodos 실행 (useEffect)
+- [X] `src/hooks/useTodos.ts` 파일 생성
+  - [X] `useTodos()` 훅 구현
+  - [X] 상태: `todos`, `loading`, `error`
+  - [X] 함수: `fetchTodos`, `createTodo`, `updateTodo`, `deleteTodo`, `toggleComplete`
+  - [X] 자동으로 fetchTodos 실행 (useEffect)
 - [ ] `src/hooks/useApi.ts` 파일 생성 (선택)
   - [ ] API 호출 로직 공통화 (loading, error 상태 관리)
 
@@ -739,16 +742,16 @@
 **설명:** Button, Input, Modal 등 재사용 가능한 공통 컴포넌트 구현
 
 **완료 조건:**
-- [ ] `src/components/common/Button.tsx` 파일 생성
-  - [ ] Props: `children`, `onClick`, `type`, `disabled`, `variant`
-  - [ ] 스타일링 (primary, secondary, danger)
-- [ ] `src/components/common/Input.tsx` 파일 생성
-  - [ ] Props: `type`, `value`, `onChange`, `placeholder`, `label`, `error`
-  - [ ] 에러 메시지 표시 기능
-- [ ] `src/components/common/Modal.tsx` 파일 생성
-  - [ ] Props: `isOpen`, `onClose`, `title`, `children`
-  - [ ] 배경 클릭 시 닫기
-  - [ ] ESC 키로 닫기
+- [X] `src/components/common/Button.tsx` 파일 생성
+  - [X] Props: `children`, `onClick`, `type`, `disabled`, `variant`
+  - [X] 스타일링 (primary, secondary, danger)
+- [X] `src/components/common/Input.tsx` 파일 생성
+  - [X] Props: `type`, `value`, `onChange`, `placeholder`, `label`, `error`
+  - [X] 에러 메시지 표시 기능
+- [X] `src/components/common/Modal.tsx` 파일 생성
+  - [X] Props: `isOpen`, `onClose`, `title`, `children`
+  - [X] 배경 클릭 시 닫기
+  - [X] ESC 키로 닫기
 
 **산출물:**
 - `src/components/common/Button.tsx`
@@ -764,21 +767,21 @@
 **설명:** RegisterForm, LoginForm 컴포넌트 구현
 
 **완료 조건:**
-- [ ] `src/components/auth/RegisterForm.tsx` 파일 생성
-  - [ ] 이메일 입력 필드
-  - [ ] 비밀번호 입력 필드
-  - [ ] 가입 버튼
-  - [ ] 입력 검증 (이메일 형식, 비밀번호 8자 이상)
-  - [ ] 에러 메시지 표시
-  - [ ] useAuth 훅 사용
-  - [ ] 가입 성공 시 로그인 페이지로 리다이렉트
-- [ ] `src/components/auth/LoginForm.tsx` 파일 생성
-  - [ ] 이메일 입력 필드
-  - [ ] 비밀번호 입력 필드
-  - [ ] 로그인 버튼
-  - [ ] 에러 메시지 표시
-  - [ ] useAuth 훅 사용
-  - [ ] 로그인 성공 시 /todos로 리다이렉트
+- [X] `src/components/auth/RegisterForm.tsx` 파일 생성
+  - [X] 이메일 입력 필드
+  - [X] 비밀번호 입력 필드
+  - [X] 가입 버튼
+  - [X] 입력 검증 (이메일 형식, 비밀번호 8자 이상)
+  - [X] 에러 메시지 표시
+  - [X] useAuth 훅 사용
+  - [X] 가입 성공 시 로그인 페이지로 리다이렉트
+- [X] `src/components/auth/LoginForm.tsx` 파일 생성
+  - [X] 이메일 입력 필드
+  - [X] 비밀번호 입력 필드
+  - [X] 로그인 버튼
+  - [X] 에러 메시지 표시
+  - [X] useAuth 훅 사용
+  - [X] 로그인 성공 시 /todos로 리다이렉트
 
 **산출물:**
 - `src/components/auth/RegisterForm.tsx`
@@ -793,15 +796,15 @@
 **설명:** RegisterPage, LoginPage 페이지 컴포넌트 구현
 
 **완료 조건:**
-- [ ] `src/pages/RegisterPage.tsx` 파일 생성
-  - [ ] RegisterForm 컴포넌트 포함
-  - [ ] "이미 계정이 있으신가요? 로그인" 링크 포함
-  - [ ] 간단한 레이아웃 및 스타일링
-- [ ] `src/pages/LoginPage.tsx` 파일 생성
-  - [ ] LoginForm 컴포넌트 포함
-  - [ ] "계정이 없으신가요? 회원가입" 링크 포함
-  - [ ] 간단한 레이아웃 및 스타일링
-- [ ] 이미 로그인한 사용자가 접근 시 /todos로 리다이렉트
+- [X] `src/pages/RegisterPage.tsx` 파일 생성
+  - [X] RegisterForm 컴포넌트 포함
+  - [X] "이미 계정이 있으신가요? 로그인" 링크 포함
+  - [X] 간단한 레이아웃 및 스타일링
+- [X] `src/pages/LoginPage.tsx` 파일 생성
+  - [X] LoginForm 컴포넌트 포함
+  - [X] "계정이 없으신가요? 회원가입" 링크 포함
+  - [X] 간단한 레이아웃 및 스타일링
+- [X] 이미 로그인한 사용자가 접근 시 /todos로 리다이렉트
 
 **산출물:**
 - `src/pages/RegisterPage.tsx`
@@ -816,25 +819,25 @@
 **설명:** TodoItem, TodoList, TodoForm 컴포넌트 구현
 
 **완료 조건:**
-- [ ] `src/components/todo/TodoItem.tsx` 파일 생성
-  - [ ] Props: `todo`, `onToggle`, `onDelete`, `onEdit`
-  - [ ] 완료 체크박스
-  - [ ] 제목, 설명, 마감일 표시
-  - [ ] 편집 버튼, 삭제 버튼
-  - [ ] 완료된 할 일: 취소선, 회색 처리
-  - [ ] 기한 경과 할 일: 빨간색 강조
-- [ ] `src/components/todo/TodoList.tsx` 파일 생성
-  - [ ] Props: `todos`, `onToggle`, `onDelete`, `onEdit`
-  - [ ] 할 일 목록 렌더링 (TodoItem 사용)
-  - [ ] 할 일 없을 때 "할 일이 없습니다" 메시지
-- [ ] `src/components/todo/TodoForm.tsx` 파일 생성
-  - [ ] Props: `onSubmit`
-  - [ ] 제목 입력 필드
-  - [ ] 설명 입력 필드 (textarea)
-  - [ ] 마감일 입력 필드 (date picker)
-  - [ ] 추가 버튼
-  - [ ] 입력 검증 (제목 필수)
-  - [ ] 제출 후 폼 초기화
+- [X] `src/components/todo/TodoItem.tsx` 파일 생성
+  - [X] Props: `todo`, `onToggle`, `onDelete`, `onEdit`
+  - [X] 완료 체크박스
+  - [X] 제목, 설명, 마감일 표시
+  - [X] 편집 버튼, 삭제 버튼
+  - [X] 완료된 할 일: 취소선, 회색 처리
+  - [X] 기한 경과 할 일: 빨간색 강조
+- [X] `src/components/todo/TodoList.tsx` 파일 생성
+  - [X] Props: `todos`, `onToggle`, `onDelete`, `onEdit`
+  - [X] 할 일 목록 렌더링 (TodoItem 사용)
+  - [X] 할 일 없을 때 "할 일이 없습니다" 메시지
+- [X] `src/components/todo/TodoForm.tsx` 파일 생성
+  - [X] Props: `onSubmit`
+  - [X] 제목 입력 필드
+  - [X] 설명 입력 필드 (textarea)
+  - [X] 마감일 입력 필드 (date picker)
+  - [X] 추가 버튼
+  - [X] 입력 검증 (제목 필수)
+  - [X] 제출 후 폼 초기화
 
 **산출물:**
 - `src/components/todo/TodoItem.tsx`
@@ -850,23 +853,23 @@
 **설명:** TodoListPage 페이지 컴포넌트 구현 (메인 페이지)
 
 **완료 조건:**
-- [ ] `src/pages/TodoListPage.tsx` 파일 생성
-  - [ ] 헤더 영역
-    - [ ] 앱 제목 표시
-    - [ ] 사용자 이메일 표시
-    - [ ] 로그아웃 버튼
-  - [ ] TodoForm 컴포넌트 포함 (할 일 추가)
-  - [ ] 미완료 할 일 목록 (TodoList 컴포넌트)
-    - [ ] 기한 경과 섹션 (빨간색)
-    - [ ] 오늘 할 일 섹션 (주황색)
-    - [ ] 예정된 할 일 섹션
-    - [ ] 마감일 없는 할 일 섹션
-  - [ ] 완료된 할 일 섹션
-    - [ ] 접기/펼치기 토글 버튼
-    - [ ] 완료된 TodoList 컴포넌트
-  - [ ] useTodos 훅 사용
-  - [ ] useAuth 훅 사용
-  - [ ] 인증되지 않은 사용자 접근 시 로그인 페이지로 리다이렉트
+- [X] `src/pages/TodoListPage.tsx` 파일 생성
+  - [X] 헤더 영역
+    - [X] 앱 제목 표시
+    - [X] 사용자 이메일 표시
+    - [X] 로그아웃 버튼
+  - [X] TodoForm 컴포넌트 포함 (할 일 추가)
+  - [X] 미완료 할 일 목록 (TodoList 컴포넌트)
+    - [X] 기한 경과 섹션 (빨간색)
+    - [X] 오늘 할 일 섹션 (주황색)
+    - [X] 예정된 할 일 섹션
+    - [X] 마감일 없는 할 일 섹션
+  - [X] 완료된 할 일 섹션
+    - [X] 접기/펼치기 토글 버튼
+    - [X] 완료된 TodoList 컴포넌트
+  - [X] useTodos 훅 사용
+  - [X] useAuth 훅 사용
+  - [X] 인증되지 않은 사용자 접근 시 로그인 페이지로 리다이렉트
 
 **산출물:**
 - `src/pages/TodoListPage.tsx`
@@ -880,15 +883,15 @@
 **설명:** React Router 설정 및 페이지 라우트 정의
 
 **완료 조건:**
-- [ ] `src/App.tsx` 파일 수정
-  - [ ] React Router BrowserRouter 설정
-  - [ ] Routes 정의
-    - [ ] `/login` → LoginPage
-    - [ ] `/register` → RegisterPage
-    - [ ] `/todos` → TodoListPage (Protected)
-    - [ ] `/` → /todos로 리다이렉트 (로그인 시) 또는 /login으로 리다이렉트 (미로그인 시)
-  - [ ] ProtectedRoute 컴포넌트 구현 (인증 필요)
-    - [ ] 로그인되지 않은 경우 /login으로 리다이렉트
+- [X] `src/App.tsx` 파일 수정
+  - [X] React Router BrowserRouter 설정
+  - [X] Routes 정의
+    - [X] `/login` → LoginPage
+    - [X] `/register` → RegisterPage
+    - [X] `/todos` → TodoListPage (Protected)
+    - [X] `/` → /todos로 리다이렉트 (로그인 시) 또는 /login으로 리다이렉트 (미로그인 시)
+  - [X] ProtectedRoute 컴포넌트 구현 (인증 필요)
+    - [X] 로그인되지 않은 경우 /login으로 리다이렉트
 
 **산출물:**
 - `src/App.tsx` (업데이트)
@@ -902,21 +905,21 @@
 **설명:** CSS 스타일링 및 모바일/데스크탑 반응형 디자인 구현
 
 **완료 조건:**
-- [ ] `src/styles/global.css` 파일 생성
-  - [ ] 전역 스타일 정의 (리셋, 폰트, 기본 색상)
-  - [ ] CSS 변수 정의 (Primary, Success, Warning, Danger, Gray 색상)
-- [ ] `src/styles/variables.css` 파일 생성 (선택)
-  - [ ] 색상, 간격, 폰트 크기 변수 정의
-- [ ] 컴포넌트별 CSS 모듈 또는 인라인 스타일 적용
-  - [ ] TodoItem 스타일링 (카드 형태)
-  - [ ] TodoForm 스타일링
-  - [ ] 버튼 스타일링 (Primary, Danger)
-  - [ ] 입력 필드 스타일링
-- [ ] 반응형 디자인 구현
-  - [ ] 모바일 (320px ~ 767px)
-  - [ ] 태블릿 (768px ~ 1023px)
-  - [ ] 데스크탑 (1024px 이상)
-  - [ ] 터치 타겟 최소 44x44px
+- [X] `src/styles/global.css` 파일 생성
+  - [X] 전역 스타일 정의 (리셋, 폰트, 기본 색상)
+  - [X] CSS 변수 정의 (Primary, Success, Warning, Danger, Gray 색상)
+- [X] `src/styles/variables.css` 파일 생성 (선택)
+  - [X] 색상, 간격, 폰트 크기 변수 정의
+- [X] 컴포넌트별 CSS 모듈 또는 인라인 스타일 적용
+  - [X] TodoItem 스타일링 (카드 형태)
+  - [X] TodoForm 스타일링
+  - [X] 버튼 스타일링 (Primary, Danger)
+  - [X] 입력 필드 스타일링
+- [X] 반응형 디자인 구현
+  - [X] 모바일 (320px ~ 767px)
+  - [X] 태블릿 (768px ~ 1023px)
+  - [X] 데스크탑 (1024px 이상)
+  - [X] 터치 타겟 최소 44x44px
 
 **산출물:**
 - `src/styles/global.css`
@@ -1461,14 +1464,14 @@
 - [ ] Task 2.10: 백엔드 API 테스트
 
 ### Phase 3: 프론트엔드 개발 (8시간)
-- [ ] Task 3.1: 프론트엔드 디렉토리 구조 생성
-- [ ] Task 3.2: TypeScript 타입 정의
-- [ ] Task 3.3: API 클라이언트 설정
-- [ ] Task 3.4: Auth Service 구현
-- [ ] Task 3.5: Todo Service 구현
-- [ ] Task 3.6: AuthContext 구현
-- [ ] Task 3.7: Custom Hooks 구현
-- [ ] Task 3.8: 공통 컴포넌트 구현
+- [X] Task 3.1: 프론트엔드 디렉토리 구조 생성
+- [X] Task 3.2: TypeScript 타입 정의
+- [X] Task 3.3: API 클라이언트 설정
+- [X] Task 3.4: Auth Service 구현
+- [X] Task 3.5: Todo Service 구현
+- [X] Task 3.6: AuthContext 구현
+- [X] Task 3.7: Custom Hooks 구현
+- [X] Task 3.8: 공통 컴포넌트 구현
 - [ ] Task 3.9: 회원가입/로그인 컴포넌트 구현
 - [ ] Task 3.10: 회원가입/로그인 페이지 구현
 - [ ] Task 3.11: Todo 컴포넌트 구현

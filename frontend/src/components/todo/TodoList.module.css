@@ -1,0 +1,76 @@
+/**
+ * TodoList Styles
+ *
+ * 할 일 목록의 레이아웃 및 스타일 정의
+ * 스타일 가이드에 따라 Microsoft To Do 스타일로 디자인
+ */
+
+.container {
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin-bottom: 8px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+  margin: 24px 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overdueIcon {
+  color: var(--error);
+}
+
+.todayIcon {
+  color: var(--warning);
+}
+
+.upcomingIcon {
+  color: var(--primary-blue);
+}
+
+.noDeadlineIcon {
+  color: var(--info);
+}
+
+.completedIcon {
+  color: var(--success);
+}
+
+.toggleButton {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: var(--font-sm);
+  color: var(--gray-600);
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background: var(--gray-100);
+}
+
+.emptySection {
+  padding: 16px;
+  text-align: center;
+  color: var(--gray-600);
+  font-style: italic;
+}

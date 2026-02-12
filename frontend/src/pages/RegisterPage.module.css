@@ -1,0 +1,79 @@
+/**
+ * RegisterPage Styles
+ *
+ * 회원가입 페이지의 레이아웃 및 스타일 정의
+ */
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--gray-50);
+  padding: 16px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  background: var(--white);
+  padding: 32px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.appTitle {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--gray-900);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.registerForm {
+  margin-bottom: 24px;
+}
+
+.linkText {
+  font-size: var(--font-sm);
+  color: var(--gray-600);
+  text-align: center;
+  margin-top: 0;
+}
+
+.link {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 767px) {
+  .formContainer {
+    padding: 24px;
+  }
+
+  .appTitle {
+    font-size: var(--font-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-md);
+  }
+
+  .linkText {
+    font-size: var(--font-xs);
+  }
+}

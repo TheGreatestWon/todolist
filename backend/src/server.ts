@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes';
 import todoRoutes from './routes/todo.routes';
+import swaggerRoutes from './routes/swagger.routes';
 import { errorHandler } from './middleware/error-handler';
 
 // Load environment variables
@@ -16,9 +17,15 @@ app.use(cors());
 // Body parsing middleware
 app.use(express.json());
 
+// Test route (임시)
+app.get('/test', (_req: Request, res: Response) => {
+  return res.status(200).json({ message: 'Test route works!' });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
+app.use('/api-docs', swaggerRoutes);
 
 // Health check endpoint
 app.get('/', (_req: Request, res: Response) => {
@@ -34,7 +41,7 @@ app.use((_req: Request, res: Response) => {
 app.use(errorHandler);
 
 // Server setup
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

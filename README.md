@@ -1,77 +1,142 @@
 # Personal Todo Management System
 
-개인 사용자를 위한 할 일 관리 웹 애플리케이션
+A full-stack todo management application built with React 19 (TypeScript) for the frontend and Node.js/Express with PostgreSQL for the backend.
 
-## 프로젝트 개요
-
-간단하고 직관적인 UI로 할 일을 효율적으로 관리할 수 있는 웹 기반 애플리케이션입니다.
-
-## 기술 스택
-
-### Frontend
-- React 19
-- TypeScript
-- Responsive Design (모바일/데스크탑 지원)
-
-### Backend
-- Node.js
-- Express
-- PostgreSQL 17
-
-### 배포
-- Vercel
-
-## 핵심 기능
-
-- **사용자 인증**: JWT 기반 회원가입 및 로그인
-- **할 일 CRUD**: 할 일 생성, 조회, 수정, 삭제
-- **마감일 기반 분류**: 오늘, 예정, 기한 경과 자동 분류
-- **완료 처리**: 할 일 완료 상태 토글
-- **반응형 UI**: 모바일과 데스크탑 환경 모두 지원
-
-## MVP 목표
-
-**출시 일정**: 이번주 금요일 오후
-
-최소 기능만을 포함한 첫 번째 버전을 빠르게 출시하여 사용자 피드백을 수집합니다.
-
-## 프로젝트 구조
+## Project Structure
 
 ```
 todolist/
-├── backend/          # Node.js + Express 백엔드 서버
-├── frontend/         # React + TypeScript 프론트엔드
-├── database/         # 데이터베이스 스키마 및 마이그레이션
-├── docs/             # 프로젝트 문서 (API 명세, 실행 계획 등)
-├── mockup/           # UI 와이어프레임
-└── swagger/          # API 문서 (Swagger)
+├── backend/          # Node.js/Express backend
+├── frontend/         # React 19 + TypeScript frontend
+├── database/         # Database schema and migrations
+├── docs/             # Documentation
+├── mockup/           # Design mockups
+├── swagger/          # API documentation
+└── package.json      # Root package.json for managing both frontend and backend
 ```
 
-## 시작하기
+## Prerequisites
 
-### 백엔드 실행
+- Node.js >= 18.0.0
+- PostgreSQL 17
+- npm >= 8.0.0
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd todolist
+```
+
+### 2. Install Dependencies
+
+```bash
+npm run install:all
+```
+
+This command installs dependencies for both the root project, frontend, and backend.
+
+### 3. Set Up Environment Variables
+
+#### Backend Configuration
+
+Copy the example environment file and configure your database connection:
+
+```bash
+# In the backend directory
+cd backend
+cp .env.example .env
+```
+
+Edit the `.env` file and update the `DATABASE_URL` with your PostgreSQL connection details.
+
+#### Frontend Configuration
+
+```bash
+# In the frontend directory
+cd frontend
+cp .env.example .env
+```
+
+### 4. Set Up Database
+
+Follow the instructions in the `database/` directory to set up your PostgreSQL database.
+
+### 5. Run the Application
+
+#### Development Mode (Frontend + Backend)
+
+```bash
+npm run dev
+```
+
+This command starts both the frontend (React dev server on port 5173) and backend (Express server on port 3000) simultaneously.
+
+#### Production Mode
+
+First, build the frontend:
+
+```bash
+npm run build
+```
+
+Then start the backend server:
 
 ```bash
 cd backend
-npm install
-npm run dev
+npm start
 ```
 
-### 프론트엔드 실행
+## Scripts Available
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+In the project root directory, you can run:
 
-## 개발 기간
+- `npm run dev` - Start both frontend and backend development servers
+- `npm run start` - Alternative command to start both servers
+- `npm run install:all` - Install dependencies for root, frontend, and backend
+- `npm run build` - Build the frontend application
+- `npm run test` - Run backend tests
 
-총 3일 (MVP 출시까지)
+In the frontend directory, you can run:
 
-## 문서
+- `npm start` - Start the development server on port 5173
+- `npm run build` - Build the application for production
+- `npm test` - Run tests
 
-- [데이터베이스 스키마](./database/schema.sql)
-- [API 명세서](./swagger/)
-- [실행 계획](./docs/execution-plan.md)
-- [도메인 정의](./docs/domain-definition.md)
+In the backend directory, you can run:
+
+- `npm run dev` - Start the development server with ts-node
+- `npm start` - Start the production server
+- `npm run build` - Compile TypeScript to JavaScript
+- `npm test` - Run tests
+
+## API Endpoints
+
+The backend API is accessible at `http://localhost:3000/api` during development.
+
+- Authentication: `http://localhost:3000/api/auth`
+- Todos: `http://localhost:3000/api/todos`
+- Swagger Docs: `http://localhost:3000/api-docs`
+
+## Environment Variables
+
+### Frontend (.env)
+
+- `REACT_APP_API_URL` - Base URL for API calls (default: `http://localhost:3000/api`)
+
+### Backend (.env)
+
+- `DATABASE_URL` - PostgreSQL connection string
+- `JWT_SECRET` - Secret key for JWT token signing
+- `PORT` - Port for the backend server (default: 3000)
+- `NODE_ENV` - Environment mode (development/production)
+
+## Technologies Used
+
+- **Frontend**: React 19, TypeScript, React Router
+- **Backend**: Node.js, Express, TypeScript
+- **Database**: PostgreSQL 17
+- **Authentication**: JWT
+- **Documentation**: Swagger

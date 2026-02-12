@@ -1,0 +1,159 @@
+/**
+ * TodoListPage Styles
+ *
+ * 할 일 목록 페이지의 레이아웃 및 스타일 정의
+ */
+
+.pageContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: var(--gray-50);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.appTitle {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.userEmail {
+  font-size: var(--font-sm);
+  color: var(--gray-600);
+  display: none; /* 모바일에서는 이메일 숨김 */
+}
+
+.logoutButton {
+  background-color: transparent;
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-sm);
+}
+
+.logoutButton:hover {
+  background-color: var(--primary-red-light);
+}
+
+.addTodoSection {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.todosSection {
+  margin-bottom: 24px;
+}
+
+.todoCategory {
+  margin-bottom: 24px;
+}
+
+.categoryTitle {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--gray-200);
+  margin: 24px 0;
+}
+
+.completedSection {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.toggleButton {
+  float: right;
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--gray-600);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 767px) {
+  .pageContainer {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .appTitle {
+    font-size: var(--font-md);
+    flex-basis: 100%; /* 모바일에서는 제목이 한 줄을 다 차지 */
+  }
+
+  .userEmail {
+    display: block; /* 모바일에서도 이메일 표시 */
+    font-size: var(--font-xs);
+    color: var(--gray-600);
+    margin-right: auto;
+  }
+
+  .logoutButton {
+    padding: 6px 12px;
+    font-size: var(--font-xs);
+  }
+
+  .addTodoSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: var(--font-md);
+  }
+
+  .categoryTitle {
+    font-size: var(--font-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .userEmail {
+    display: block; /* 태블릿 이상에서는 이메일 표시 */
+  }
+}
